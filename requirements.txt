@@ -1,0 +1,6 @@
+lifetimes
+pandas
+matplotlib
+numpy
+scikit-learn
+openpyxl
