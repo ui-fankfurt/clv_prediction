@@ -115,18 +115,23 @@ def process_csv(filename):
         time = 6,# In months
         )
     
-    output = df_rfmt.to_csv('output\clv_predicted.csv')
+    df_rfmt = df_rfmt.reset_index()
+    #output = df_rfmt.to_csv('output\clv_predicted.csv')
     
-    #output_file = "CLV_predicted.csv"
-    #output_dir = f"output\{output_file}"
-    #with open(output_dir, 'w', newline='') as f:
-    #   writer = csv.writer(f)
-    #    writer.writerow(['CustomerID', 'CLV'])
-    #    for index, row in df_rfmt.iterrows():
-    #        writer.writerow([row['CustomerID'], row['CLV']])
-    
-    
-    return output
+    output = df_rfmt[["CustomerID", "CLV"]]
 
+    output_file = "CLV_predicted.csv"
+    output_dir = f"output\{output_file}"
+    with open(output_dir, 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(["CustomerID", 'CLV'])
+        for index, row in output.iterrows():
+            writer.writerow([row["CustomerID"], row['CLV']])
+    
+    #aa = df_rfmt.to_csv('aaa.csv')
+    
+    return output_file
+
+process_csv("online_retail.csv")
 
 
