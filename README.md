@@ -3,7 +3,7 @@
 ## Installation
 Use pip to install all the packages required for the model and application
 ```bash
-pip install foobar
+pip install -r requirements.txt
 ```
 
 ## Steps 
