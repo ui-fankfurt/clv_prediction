@@ -28,6 +28,10 @@
             margin-top: 5px;
             border-radius: 4px;
         }
+        .note {
+            font-style: italic;
+            color: #888;
+        }
         button {
             background-color: #333;
             color: #fff;
@@ -45,7 +49,8 @@
     <h1>File Upload</h1>
     <form class="upload-form" action="upload" method="POST" enctype="multipart/form-data">
         <label for="file">Select a file:</label><br>
-        <input type="file" id="file" name="file"><br><br>
+        <input type="file" id="file" name="file"><br>
+        <span class="note">Note: The file needs to be a CSV file</span><br><br>
         <button type="submit">Upload</button>
     </form>
 </body>
