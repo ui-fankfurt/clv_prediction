@@ -19,3 +19,8 @@ Use the appropriate python depending on the python version in your environment
 ## Possible Improvement
 1. UI Improvement
 2. Progress Bar on the page when loading
+
+## References
+1. https://www.youtube.com/watch?v=BP8ulGbu1fc
+2. https://medium.com/@yassirafif/projecting-customer-lifetime-value-using-the-bg-nbd-and-the-gamma-gamma-models-9a937c60fe7f
+
