@@ -14,6 +14,11 @@ python3.10 -m flask run
 ```
 Use the appropriate python depending on the python version in your environment
 
+If running on venv use this
+```bash
+flask run
+```
+
 3. Upload the file on browser and wait for processing
 
 ## Possible Improvement
