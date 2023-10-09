@@ -26,6 +26,10 @@ flask run
 2. Progress Bar on the page when loading
 3. Visualize the performance of the model
 4. Create a download button instead of automatic download
+5. Create a button that enables users to select the number of future months they want to consider when specifying the customer lifetime value.
+6. Visulize the clusters of users based on CLV
+- K Nearest neighbors
+
 
 ## References
 1. https://www.youtube.com/watch?v=BP8ulGbu1fc
