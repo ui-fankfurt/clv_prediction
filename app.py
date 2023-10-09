@@ -29,10 +29,18 @@ def create_app():
                 
                 output_file = process_csv(save_location)
 
-                return send_from_directory('output', output_file)
+                return redirect(url_for('download'))
+
 
 
             return 'uploaded'
         return render_template('upload.html')
     
+    @app.route('/download')
+    def download():
+        return render_template('download.html', files=os.listdir('output'))
+    
+    @app.route('/download/<filename>')
+    def download_file(filename):
+        return send_from_directory('output', filename)
     return app

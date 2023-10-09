@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Download Buttons</title>
+    <style>
+        /* Style for the download buttons */
+        .download-button {
+            background-color: #007BFF; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Add padding for button size */
+            border-radius: 4px; /* Add rounded corners */
+            cursor: pointer; /* Add pointer cursor on hover */
+            margin-bottom: 10px; /* Add margin between buttons */
+        }
+
+        /* Style for button hover state */
+        .download-button:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Download File</h1>
+    {% for filename in files %}
+        <form action="{{ url_for('download_file', filename=filename) }}" method="GET">
+            <button type="submit" class="download-button">{{ "Download" }}</button>
+        </form>
+        <br>
+    {% endfor %}
+    <h1>Performance of the model</h1>
+    <h1>Customer Cluster</h1>
+</body>
+</html>
