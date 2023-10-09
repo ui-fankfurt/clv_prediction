@@ -30,10 +30,10 @@ def create_app():
                 output_file = process_csv(save_location)
 
                 return redirect(url_for('download'))
+            else:
+                return redirect(url_for('error'))
 
 
-
-            return 'uploaded'
         return render_template('upload.html')
     
     @app.route('/download')
@@ -43,4 +43,8 @@ def create_app():
     @app.route('/download/<filename>')
     def download_file(filename):
         return send_from_directory('output', filename)
+    
+    @app.route('/error')
+    def error():
+        return render_template('error.html')
     return app
