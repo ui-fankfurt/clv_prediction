@@ -24,6 +24,8 @@ flask run
 ## Possible Improvement
 1. UI Improvement
 2. Progress Bar on the page when loading
+3. Visualize the performance of the model
+4. Create a download button instead of automatic download
 
 ## References
 1. https://www.youtube.com/watch?v=BP8ulGbu1fc
