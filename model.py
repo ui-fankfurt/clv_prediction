@@ -131,7 +131,7 @@ def process_csv(filename, month):
 
 
 
-    output_file = f"{month}_CLV_predicted_{current_date}_{current_hour:02}_{current_min:02}.csv"
+    output_file = f"{month}_months_CLV_predicted_{current_date}_{current_hour:02}_{current_min:02}.csv"
     output_dir = f"output\{output_file}"
     with open(output_dir, 'w', newline='') as f:
         writer = csv.writer(f)
@@ -143,6 +143,5 @@ def process_csv(filename, month):
     
     return output_file
 
-process_csv("online_retail.csv")
 
 
