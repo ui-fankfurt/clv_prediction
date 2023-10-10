@@ -20,6 +20,8 @@ def create_app():
     def upload():
         if request.method == 'POST':
             file = request.files['file']
+            month = request.form['months']
+            month = request.form['months']
             if file and allowed_filenames(file.filename):
                 filename = secure_filename(file.filename)
                 #new_filename = f"{filename.split('.')[0]}_{str(datetime.now())}.csv"
@@ -27,10 +29,11 @@ def create_app():
                 save_location = f"input\{new_filename}"#os.path.join('input', new_filename)
                 file.save(save_location)
                 
-                output_file = process_csv(save_location)
+                output_file = process_csv(save_location, month)
 
                 return redirect(url_for('download'))
             else:
+                #shows error page when csv file is not uploaded
                 return redirect(url_for('error'))
 
 

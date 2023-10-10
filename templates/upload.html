@@ -28,6 +28,13 @@
             margin-top: 5px;
             border-radius: 4px;
         }
+        .input-number {
+            border: 1px solid #ccc;
+            padding: 8px;
+            width: 100%;
+            margin-top: 5px;
+            border-radius: 4px;
+        }
         .note {
             font-style: italic;
             color: #888;
@@ -50,7 +57,13 @@
     <form class="upload-form" action="upload" method="POST" enctype="multipart/form-data">
         <label for="file">Select a file:</label><br>
         <input type="file" id="file" name="file"><br>
+        <br>
         <span class="note">Note: The file needs to be a CSV file</span><br><br>
+
+        <!-- Input field for the number of months -->
+        <label for="months">Enter the number of upcoming months:</label><br>
+        <input type="number" id="months" name="months" class="input-number" min="1"><br><br>
+
         <button type="submit">Upload</button>
     </form>
 </body>
