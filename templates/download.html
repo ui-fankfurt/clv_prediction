@@ -5,8 +5,8 @@
     <style>
         /* Style for the download buttons */
         .download-button {
-            background-color: #007BFF; /* Button background color */
-            color: #fff; /* Button text color */
+            background-color: #000; /* Black background color */
+            color: #fff; /* White text color */
             border: none; /* Remove border */
             padding: 10px 20px; /* Add padding for button size */
             border-radius: 4px; /* Add rounded corners */
@@ -16,10 +16,11 @@
 
         /* Style for button hover state */
         .download-button:hover {
-            background-color: #0056b3; /* Change background color on hover */
+            background-color: #333; /* Dark gray background color on hover */
         }
+
         .file-name {
-            font-size: 12px; /* Adjust the font size as needed */
+            font-size: 15px; /* Adjust the font size as needed */
             font-weight: normal; /* Remove bold style */
         }
     </style>
@@ -29,6 +30,7 @@
     {% for filename in files %}
         <h2 class="file-name">{{ filename }}</h2> 
         <form action="{{ url_for('download_file', filename=filename) }}" method="GET">
+            <!-- Black and white download button -->
             <button type="submit" class="download-button">{{ "Download" }}</button>
         </form>
         <br>
