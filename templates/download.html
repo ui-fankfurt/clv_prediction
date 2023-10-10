@@ -18,12 +18,16 @@
         .download-button:hover {
             background-color: #0056b3; /* Change background color on hover */
         }
+        .file-name {
+            font-size: 12px; /* Adjust the font size as needed */
+            font-weight: normal; /* Remove bold style */
+        }
     </style>
 </head>
 <body>
     <h1>Download File</h1>
     {% for filename in files %}
-        <h2>{{ filename }}</h2> <!-- Display the file name -->
+        <h2 class="file-name">{{ filename }}</h2> 
         <form action="{{ url_for('download_file', filename=filename) }}" method="GET">
             <button type="submit" class="download-button">{{ "Download" }}</button>
         </form>
