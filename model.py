@@ -12,8 +12,9 @@ from decimal import Decimal
 import datetime as dt
 import pickle
 import csv
+import datetime
 
-def process_csv(filename):
+def process_csv(filename, month):
     ##################################################################
     # DATA CLEANING #
     ##################################################################
@@ -112,7 +113,7 @@ def process_csv(filename):
         df_rfmt['recency'],
         df_rfmt['T'],
         df_rfmt['monetary_value'],
-        time = 6,# In months
+        time = month,# In months
         )
     
     df_rfmt = df_rfmt.reset_index()
@@ -120,7 +121,17 @@ def process_csv(filename):
     
     output = df_rfmt[["CustomerID", "CLV"]]
 
-    output_file = "CLV_predicted.csv"
+    current_datetime = datetime.datetime.now()
+
+    current_date = current_datetime.date()
+    current_time = current_datetime.time()
+
+    current_hour = current_time.hour
+    current_min = current_time.minute
+
+
+
+    output_file = f"{month}_CLV_predicted_{current_date}_{current_hour:02}_{current_min:02}.csv"
     output_dir = f"output\{output_file}"
     with open(output_dir, 'w', newline='') as f:
         writer = csv.writer(f)

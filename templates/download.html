@@ -23,6 +23,7 @@
 <body>
     <h1>Download File</h1>
     {% for filename in files %}
+        <h2>{{ filename }}</h2> <!-- Display the file name -->
         <form action="{{ url_for('download_file', filename=filename) }}" method="GET">
             <button type="submit" class="download-button">{{ "Download" }}</button>
         </form>
