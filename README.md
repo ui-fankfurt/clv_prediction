@@ -34,4 +34,5 @@ flask run
 ## References
 1. https://www.youtube.com/watch?v=BP8ulGbu1fc
 2. https://medium.com/@yassirafif/projecting-customer-lifetime-value-using-the-bg-nbd-and-the-gamma-gamma-models-9a937c60fe7f
+3. https://www.youtube.com/watch?v=Vf2K6zYQmu8&t=26s
 
