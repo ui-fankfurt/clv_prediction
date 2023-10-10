@@ -21,7 +21,7 @@ def create_app():
         if request.method == 'POST':
             file = request.files['file']
             month = request.form['months']
-            month = request.form['months']
+            month = int(month)
             if file and allowed_filenames(file.filename):
                 filename = secure_filename(file.filename)
                 #new_filename = f"{filename.split('.')[0]}_{str(datetime.now())}.csv"
@@ -41,7 +41,7 @@ def create_app():
     
     @app.route('/download')
     def download():
-        return render_template('download.html', files=os.listdir('output'))
+        return render_template('download.html', files=os.listdir('output'), plt_url = 'static/myplot.png')
     
     @app.route('/download/<filename>')
     def download_file(filename):

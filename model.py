@@ -13,6 +13,7 @@ import datetime as dt
 import pickle
 import csv
 import datetime
+import seaborn as sns
 
 def process_csv(filename, month):
     ##################################################################
@@ -119,6 +120,71 @@ def process_csv(filename, month):
     df_rfmt = df_rfmt.reset_index()
     #output = df_rfmt.to_csv('output\clv_predicted.csv')
     
+
+    ##################################################################
+    # Visualise Clusters #
+    ##################################################################
+    df = df_rfmt
+    km_model = KMeans(n_clusters=4)
+    km_model.fit(df)
+    
+    # Creating a new column called cluster whose values are the corresponding cluster for each point.
+    df['cluster'] = km_model.labels_
+
+
+    df_clusters= df.groupby(['cluster'])['CLV']\
+                    .agg(['mean', "count"])\
+                    .reset_index()
+
+    df_clusters.columns = ["cluster", "avg_CLV", "n_customers"]
+
+    df_clusters['perct_customers'] = (df_clusters['n_customers']/df_clusters['n_customers']\
+                                .sum())*100
+    df_clusters = df_clusters.sort_values(by = 'avg_CLV', ascending=False)
+    cluster_mapping = {
+    0: 'Bronze',
+    1: 'Diamond',
+    2: 'Gold',
+    3: 'Silver'
+    }
+
+    # Replace the "cluster" column values based on the mapping
+    df['customer_category'] = df['cluster'].map(cluster_mapping)
+
+    df_clusters = df_clusters.reset_index(drop=True)
+
+    df_cat = pd.DataFrame(df.groupby(['customer_category'])['CLV']\
+                    .agg('mean')).reset_index()
+
+
+    plt.figure(figsize=(8, 8))
+
+
+    plots = sns.barplot(x="customer_category", y="CLV", data=df_cat)
+
+    # Iterating over the bars one-by-one
+    for bar in plots.patches:
+        plots.annotate(format(bar.get_height(), '.2f'),
+                    (bar.get_x() + bar.get_width() / 2,
+                        bar.get_height()), ha='center', va='center',
+                    size=15, xytext=(0, 8),textcoords='offset points')
+
+    plt.xlabel("Customer category", size=14)
+
+    # Setting the label for y-axis
+    plt.ylabel("CLV", size=14)
+
+    # Setting the title for the graph
+    plt.title("CLV per category")
+
+    plt.savefig('static/my_plot.png')
+
+
+
+
+    ##################################################################
+    # Saving file #
+    ##################################################################
     output = df_rfmt[["CustomerID", "CLV"]]
 
     current_datetime = datetime.datetime.now()
@@ -128,8 +194,6 @@ def process_csv(filename, month):
 
     current_hour = current_time.hour
     current_min = current_time.minute
-
-
 
     output_file = f"{month}_months_CLV_predicted_{current_date}_{current_hour:02}_{current_min:02}.csv"
     output_dir = f"output\{output_file}"
