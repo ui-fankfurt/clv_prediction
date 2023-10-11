@@ -29,7 +29,6 @@ flask run
 5. Create a button that enables users to select the number of future months they want to consider when specifying the customer lifetime value (done)
 6. Visulize the clusters of users based on CLV (done)
 - K Nearest neighbors
-7. Make sure site is deployed
 
 
 ## References
