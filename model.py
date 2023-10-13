@@ -204,8 +204,6 @@ def process_csv(filename, month):
         for index, row in output.iterrows():
             writer.writerow([row["CustomerID"], row['CLV']])
     
-    #aa = df_rfmt.to_csv('aaa.csv')
-    
     return output_file
 
 
