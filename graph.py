@@ -31,6 +31,7 @@ def plot_calibration_purchases_vs_holdout_purchases(model, calibration_holdout_m
     plt.xlabel(x_labels[kind])
     plt.ylabel("Average of Purchases in Holdout Period")
     plt.legend()
+    #saves the graph
     plt.savefig('static/model_validation.png')
 
     return ax
