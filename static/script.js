@@ -37,9 +37,17 @@ dropzone.addEventListener('drop', function(e) {
 });
 
 function uploadFile(file) {
+
+    const months = document.getElementById('monthsInput').value;
+    if (!months) {
+        alert('Please enter the number of months.');
+        return;
+    }
+    console.log(months);
+
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('months', 12);
+    formData.append('months', months);
 
     fetch('/upload', {
         method: 'POST',
