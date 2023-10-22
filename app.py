@@ -12,7 +12,7 @@ ALLOWED_EXTENSIONS = set(['csv'])
 def allowed_filenames(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates', static_folder='static')
 
 @app.route('/upload', methods = ['GET', "POST"])
 def upload():

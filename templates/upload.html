@@ -1,70 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Upload</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        .upload-form {
-            border: 2px solid #333;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            margin: 0 auto;
-        }
-        label {
-            font-weight: bold;
-        }
-        input[type="file"] {
-            border: 1px solid #ccc;
-            padding: 8px;
-            width: 100%;
-            margin-top: 5px;
-            border-radius: 4px;
-        }
-        .input-number {
-            border: 1px solid #ccc;
-            padding: 8px;
-            width: 100%;
-            margin-top: 5px;
-            border-radius: 4px;
-        }
-        .note {
-            font-style: italic;
-            color: #888;
-        }
-        button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #555;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/styles2.css">
 </head>
+
 <body>
-    <h1>File Upload</h1>
-    <form class="upload-form" action="upload" method="POST" enctype="multipart/form-data">
-        <label for="file">Select a file:</label><br>
-        <input type="file" id="file" name="file"><br>
-        <br>
-        <span class="note">Note: The file needs to be a CSV file</span><br><br>
+    <header>
+        <img src="path/to/your/logo.png" alt="Your Logo" id="logo">
+        <button id="helpBtn">Help</button>
+    </header>
 
-        <!-- Input field for the number of months -->
-        <label for="months">Enter the number of upcoming months:</label><br>
-        <input type="number" id="months" name="months" class="input-number" min="1"><br><br>
+    <div class="file-upload-container">
+        <h2>Drag & Drop your file here</h2>
+        <div class="dropzone" id="dropzone">Or click to select a file</div>
+    </div>
 
-        <button type="submit">Upload</button>
-    </form>
+    <script src="/static/script2.js"></script>
 </body>
+
 </html>
