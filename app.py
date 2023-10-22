@@ -14,28 +14,28 @@ def allowed_filenames(filename):
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
-@app.route('/upload', methods = ['GET', "POST"])
-def upload():
-    if request.method == 'POST':
-        file = request.files['file']
-        month = request.form['months']
-        month = int(month)
-        if file and allowed_filenames(file.filename):
-            filename = secure_filename(file.filename)
-            #new_filename = f"{filename.split('.')[0]}_{str(datetime.now())}.csv"
-            new_filename = "online_retail_input.csv"
-            save_location = f"input\{new_filename}"#os.path.join('input', new_filename)
-            file.save(save_location)
-            
-            output_file = process_csv(save_location, month)
-
-            return redirect(url_for('download'))
-        else:
-            #shows error page when csv file is not uploaded
-            return redirect(url_for('error'))
-
-
+@app.route('/', methods = ['GET'])
+def homepage():
     return render_template('upload.html')
+
+@app.route('/upload', methods = ["POST"])
+def upload():
+    file = request.files['file']
+    month = request.form['months']
+    month = int(month)
+    if file and allowed_filenames(file.filename):
+        filename = secure_filename(file.filename)
+        #new_filename = f"{filename.split('.')[0]}_{str(datetime.now())}.csv"
+        new_filename = "online_retail_input.csv"
+        save_location = f"input\{new_filename}"#os.path.join('input', new_filename)
+        file.save(save_location)
+        
+        output_file = process_csv(save_location, month)
+
+        return redirect(url_for('download'))
+    else:
+        #shows error page when csv file is not uploaded
+        return redirect(url_for('error'))
 
 @app.route('/download')
 def download():
