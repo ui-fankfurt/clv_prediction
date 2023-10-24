@@ -1,70 +1,100 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>File Upload</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        .upload-form {
-            border: 2px solid #333;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            margin: 0 auto;
-        }
-        label {
-            font-weight: bold;
-        }
-        input[type="file"] {
-            border: 1px solid #ccc;
-            padding: 8px;
-            width: 100%;
-            margin-top: 5px;
-            border-radius: 4px;
-        }
-        .input-number {
-            border: 1px solid #ccc;
-            padding: 8px;
-            width: 100%;
-            margin-top: 5px;
-            border-radius: 4px;
-        }
-        .note {
-            font-style: italic;
-            color: #888;
-        }
-        button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #555;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      .upload-form {
+        border: 2px solid #333;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin: 0 auto;
+      }
+      label {
+        font-weight: bold;
+      }
+      input[type="file"] {
+        border: 1px solid #ccc;
+        padding: 8px;
+        width: 100%;
+        margin-top: 5px;
+        border-radius: 4px;
+      }
+      .input-number {
+        border: 1px solid #ccc;
+        padding: 8px;
+        width: 100%;
+        margin-top: 5px;
+        border-radius: 4px;
+      }
+      .note {
+        font-style: italic;
+        color: #888;
+      }
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #555;
+      }
+      #feedbackButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      #feedbackButton:hover {
+        background-color: #555;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <button onclick="location.href='feedback'" id="feedbackButton">
+      Give Feedback
+    </button>
     <h1>File Upload</h1>
-    <form class="upload-form" action="upload" method="POST" enctype="multipart/form-data">
-        <label for="file">Select a file:</label><br>
-        <input type="file" id="file" name="file"><br>
-        <br>
-        <span class="note">Note: The file needs to be a CSV file</span><br><br>
+    <form
+      class="upload-form"
+      action="/"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <label for="file">Select a file:</label><br />
+      <input type="file" id="file" name="file" /><br />
+      <br />
+      <span class="note">Note: The file needs to be a CSV file</span
+      ><br /><br />
 
-        <!-- Input field for the number of months -->
-        <label for="months">Enter the number of upcoming months:</label><br>
-        <input type="number" id="months" name="months" class="input-number" min="1"><br><br>
+      <!-- Input field for the number of months -->
+      <label for="months">Enter the number of upcoming months:</label><br />
+      <input
+        type="number"
+        id="months"
+        name="months"
+        class="input-number"
+        min="1"
+      /><br /><br />
 
-        <button type="submit">Upload</button>
+      <button type="submit">Upload</button>
     </form>
-</body>
+  </body>
 </html>
