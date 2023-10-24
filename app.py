@@ -37,24 +37,6 @@ def upload():
 
 
     return render_template('upload.html')
-    
-    @app.route('/download')
-    def download():
-        return render_template('download.html', files=os.listdir('output'), plt_url = 'static/myplot.png', val_url = 'static/model_validation.png')
-    
-    @app.route('/download/<filename>')
-    def download_file(filename):
-        return send_from_directory('output', filename)
-    
-    @app.route('/error')
-    def error():
-        return render_template('error.html')
-    
-    @app.route('/feedback')
-    def feedback(): 
-        return render_template('form.html')
-    
-    return app
 
 @app.route('/download')
 def download():
