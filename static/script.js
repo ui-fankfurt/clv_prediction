@@ -1,5 +1,8 @@
 document.getElementById('helpBtn').addEventListener('click', function() {
-    alert('Help: Drag and drop your file into the dropzone or click on it to select a file.');
+    alert('Todo: link to help page');
+});
+document.getElementById('feedbackBtn').addEventListener('click', function() {
+    alert('Todo: link to feedback form');
 });
 
 const dropzone = document.getElementById('dropzone');
@@ -23,12 +26,12 @@ dropzone.addEventListener('dragover', function(e) {
 });
 
 dropzone.addEventListener('dragleave', function(e) {
-    this.style.backgroundColor = "transparent";
+    this.style.backgroundColor = "#44de33";
 });
 
 dropzone.addEventListener('drop', function(e) {
     e.preventDefault();
-    this.style.backgroundColor = "transparent";
+    this.style.backgroundColor = "#44de33";
 
     const files = e.dataTransfer.files;
     if (files.length) {
@@ -43,7 +46,6 @@ function uploadFile(file) {
         alert('Please enter the number of months.');
         return;
     }
-    console.log(months);
 
     const formData = new FormData();
     formData.append('file', file);
