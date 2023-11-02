@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>File Download Buttons</title>
-    <style>
-        /* Style for the download buttons */
-        .download-button {
-            background-color: #000; /* Black background color */
-            color: #fff; /* White text color */
-            border: none; /* Remove border */
-            padding: 10px 20px; /* Add padding for button size */
-            border-radius: 4px; /* Add rounded corners */
-            cursor: pointer; /* Add pointer cursor on hover */
-            margin-bottom: 10px; /* Add margin between buttons */
-        }
-
-        /* Style for button hover state */
-        .download-button:hover {
-            background-color: #333; /* Dark gray background color on hover */
-        }
-
-        .file-name {
-            font-size: 15px; /* Adjust the font size as needed */
-            font-weight: normal; /* Remove bold style */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLV Download</title>
+    <link rel="stylesheet" href="/static/download.css">
 </head>
+
 <body>
-    <h1>Download File</h1>
-    {% for filename in files %}
-        <h2 class="file-name">{{ filename }}</h2> 
-        <form action="{{ url_for('download_file', filename=filename) }}" method="GET">
-            <!-- Black and white download button -->
-            <button type="submit" class="download-button">{{ "Download" }}</button>
-        </form>
-        <br>
-    {% endfor %}
-    <h1>Customer Cluster</h1>
-    <img src="{{ url_for('static', filename='my_plot.png') }}" alt="Customer Cluster Image" class="cluster-image">
-    <h1>Model Validation</h1>
-    <img src="{{ url_for('static', filename='model_validation.png') }}" alt="Model Validation Graph" class="validation-image">
+    <header>
+        <img src="/static/fintech-transparent.png" alt="Your Logo" id="logo">
+        <div class="buttons">
+            <button class="feedbackBtn" id="feedbackBtn">Feedback</button>
+            <button class="helpBtn" id="helpBtn">Help?</button>
+        </div>
+    </header>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='my_plot.png') }}" alt="Customer Cluster Image" class="cluster-image">
+    </div>
+    <br />
+    <br />
+    <div class="download-buttons">
+        {% for filename in files[:5] %} {# Limit to the first 5 items #}
+            <div class="file-card">
+                <h2 class="file-name">{{ filename }}</h2> 
+                <form action="{{ url_for('download_file', filename=filename) }}" method="GET">
+                    <!-- Black and white download button -->
+                    <button type="submit" class="download-button">{{ "Download" }}</button>
+                </form>
+            </div>
+        {% endfor %}
+        <!-- Add a red button to go back to the root page -->
+        <button onclick="window.location.href = '{{ url_for('homepage') }}'" class="back-button">Back to Home</button>
+    </div>
+
+    <script src="/static/script.js"></script>
 </body>
 </html>
