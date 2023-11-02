@@ -1,0 +1,102 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+
+#logo {
+    max-width: 150px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+button:hover {
+    color: #49FF39;
+}
+
+.download-buttons {
+    text-align: center; /* Center button text */
+}
+
+
+/* Style for the "Download" button inside the card */
+.download-button {
+    background-color: #49FF39;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+/* Style for button hover state */
+.download-button:hover {
+    background-color: #4CAF50; /* Slightly darker green background color on hover */
+}
+
+/* Style for the file name card with rounded corners */
+.file-card {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    border-radius: 10px; /* Add this line to round the corners */
+}
+
+
+/* Style for the cluster image */
+.cluster-image {
+    max-width: 100%; /* Ensure the image doesn't exceed its container width */
+    display: block; /* Make the image a block element to control its position */
+}
+
+/* Container for the cluster image */
+.image-container {
+    float: right;
+    margin-left: 10px;
+}
+
+/* Style for the back button to match the download button */
+.back-button {
+    background-color: #FF0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Style for button hover state */
+.back-button:hover {
+    background-color: #333; /* Dark gray background color on hover, matching the download button */
+}
+
+
+
