@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLV Predictor</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/upload.css">
 </head>
 
 <body>
@@ -23,14 +23,17 @@
         <input type="number" id="monthsInput" min="1" placeholder="Enter the number of upcoming months of customer value to predict">
         
         <div class="dropzone" id="dropzone">
-            <img src="/static/csv-logo.png" alt="Dropzone Logo" id="dropzoneLogo">
-            <span><b>Drag & drop your CSV file here </b><br/> or click to select a file</span>
+            <img src="/static/csv-logo.png" alt="Dropzone Logo" id="dropzone-logo">
+            <div class="loader-container">
+                <div class="loader" id="loader"></div>
+            </div>
+            <p id="dropzone-description"><b>Drag & drop your CSV file here </b><br/> or click to select a file</p>
         </div>
     </div>
 
     <p id="upload-description">Predict customer lifetime values for the next few months easily without any of the hassle or coding! <br/>Simply upload or drag down your CSV file to get started.</p>
 
-    <script src="/static/script.js"></script>
+    <script src="/static/upload.js"></script>
 </body>
 
 </html>
