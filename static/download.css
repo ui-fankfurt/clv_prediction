@@ -73,7 +73,7 @@ body {
 }
 
 .file-card {
-    width: 900px;
+    width: 850px;
     background-color: #fff;
     padding: 15px;
     border: 1px solid #ddd;
@@ -104,7 +104,7 @@ body {
 /* Style for the back button to match the download button */
 .back-button {
     background-color: #FF0000;
-    color: black;
+    color: #fff;
     border: none;
     padding: 15px 30px;
     border-radius: 4px;

@@ -146,34 +146,29 @@ def process_csv(filename, month):
     ##################################################################
     km_model = KMeans(n_clusters=4)
     km_model.fit(df_rfmt)
-    # Creating a new column called cluster whose values are the corresponding cluster for each point.
     df_rfmt['cluster'] = km_model.labels_
 
-    # Grouping by clusters
     df_clusters = df_rfmt.groupby(['cluster'])['CLV']\
                         .agg(['mean', "count"])\
                         .reset_index()
 
-    #df_clusters.columns = ["cluster", "avg_CLV", "n_customers"]
-
-    #df_clusters['perct_customers'] = (df_clusters['n_customers']/df_clusters['n_customers']\
-    #                                 .sum())*100
     df_clusters['order'] = df_clusters['mean'].rank(ascending=False, method='min')
 
     category_mapping = {1: 'Diamond', 2: 'Gold', 3: 'Silver', 4: 'Bronze'}
-
-    # Add a new column "customer_category" based on the "order" column
     df_clusters['customer_category'] = df_clusters['order'].map(category_mapping)
 
     df_clusters = df_clusters.sort_values(by='order')
 
-    # Plot the bar graph
+    # Set the figure size before creating the bar graph
+    plt.figure(figsize=(9, 7))  # Adjust width and height as needed
+
     plt.bar(df_clusters['customer_category'], df_clusters['mean'], color=['blue', 'gold', 'silver', 'brown'])
     plt.xlabel('Customer Category')
     plt.ylabel('Mean Value')
     plt.title('Mean Value by Customer Category')
 
     plt.savefig('static/my_plot.png')
+
     
     return output_file
 
