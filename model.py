@@ -172,5 +172,5 @@ def process_csv(filename, month):
     
     return output_file
 
-process_csv("online_retail.csv", 12)
+
 
