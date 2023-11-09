@@ -49,12 +49,13 @@ body {
 /* Style for the "Download" button inside the card */
 .download-button {
     background-color: #49FF39;
-    color: #fff;
+    color: black;
     border: none;
     padding: 15px 30px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 18px; /* Adjust the font size to your preference */
+    font-size: 20px; /* Adjust the font size to your preference */
+    font-weight: bold;
 }
 
 /* Style for button hover state */
@@ -103,12 +104,13 @@ body {
 /* Style for the back button to match the download button */
 .back-button {
     background-color: #FF0000;
-    color: #fff;
+    color: black;
     border: none;
     padding: 15px 30px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 18px; /* Adjust the font size to your preference */
+    font-weight: bold;
 }
 
 /* Style for button hover state */
